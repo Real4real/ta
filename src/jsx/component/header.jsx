@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <nav className="navbar" role="navigation" aria-label="main navigation">
+        <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
 
                 <a className="navbar-item">
-                    <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
+                    <img src="../../img/facial-treatment.png" width="30" height="50" />
+                    <p className="subtitle is-3">Make</p>
                 </a>
 
                     <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
