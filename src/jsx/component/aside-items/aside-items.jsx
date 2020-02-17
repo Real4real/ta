@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import SwapiService from '../../../../../fetch/src/swapi-service.js'
+import SwapiService from '../../../service.js';
+import Spiner from '../spiner/spiner.jsx'
 
 export default class AsideItems extends Component {
     service = new SwapiService();
@@ -8,33 +9,57 @@ export default class AsideItems extends Component {
     }
 
     componentDidMount() {
-        let uniqarr2;
-        let aray = [];
+       
+        
+        // const { getData } = this.props;
+        // this.setState({
+        //     data: getData
+        // })
+        // this.service.getResource()
+        //     .then((data) => {
+        //         data.map((bb) => {
 
-        this.service.getResource()
-            .then((data) => {
-                data.map((bb) => {
-                    const label = this.props.renderItem(item);
+        //             // const { label } = this.props;  
                     
-                    aray.push({label})
+        //             aray.push(bb.brand)
 
-                    const uniqarr = new Set(aray)
-                    uniqarr2 = [...uniqarr]
-                })
-                this.setState(() => {
-                    return { data: uniqarr2 }
-                })
-                // console.log(uniqarr2)
+        //             const uniqarr = new Set(aray)
+        //             uniqarr2 = [...uniqarr]
+        //         })
+        //         this.setState(() => {
+        //             return { data: uniqarr2 }
+        //         })
+        //         // console.log(uniqarr2)
 
-            })    
+        //     })    
     }
 
+    renderItems(arr) {
+        return arr.map((item) => {
+            return (
+                <li key={item}><a>{item}</a></li>
+            )
+        })
+    }
 
     render() {
+        const { data } = this.state;
+        console.log(this.props.getData);
+        const { getData } = this.props;
+
+        if (!getData) {
+            return <Spiner />
+        }
+
+        // const items = this.renderItems(this.props.getData)
+
         return (
-            <div>
-                
-            </div>
+            <li>
+                <a>Brands</a>
+                <ul className="lorem-cont">
+                    {items}
+                </ul>
+            </li>
         )
     }
 }

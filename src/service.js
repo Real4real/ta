@@ -4,6 +4,24 @@ export default class Service {
         return res.json()
         
     };
+
+    getProducts = async () => {
+        let uniqarr22;
+        let aray2 = [];
+            this.getResource()
+            .then((body) => {
+            body.map((bb) => {
+                aray2.push(bb.product_type)
+
+                const uniqarr = new Set(aray2)
+                
+                uniqarr22 = [...uniqarr]
+            })
+                // console.log(uniqarr22)
+
+            })
+
+    };
     
 }
 // const arr = [
@@ -34,5 +52,7 @@ service.getResource()
         console.log(uniqarr2)
         
     })
+
+service.getProducts()
 
     
