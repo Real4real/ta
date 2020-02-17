@@ -2,6 +2,8 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+// const ProvidePlugin = require('webpack-provide-global-plugin');
+const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const devMode = process.env.NODE_ENV;
 const conf = {
@@ -105,8 +107,13 @@ const conf = {
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       favicon: 'src/img/favicon.png'
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
     })
   ]
+
 };
 
 module.exports = (env, options) => {

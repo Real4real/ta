@@ -3,20 +3,25 @@
 }
 .main-cnt {
     display: grid;
-    grid-gap: 5px;
+    // grid-gap: 5px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-template-rows: repeat(auto-fit, 600px);
+    grid-template-rows: repeat(auto-fit, auto-fit);
     .card {
-        background: yellow;
+        background-color: #fff;
+        box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+        color: #4a4a4a;
+        // max-width: 100%;
+        // position: relative;
+
         margin: 2px;
-        border: 2px solid blue;
-        height: 600px;
+        height: auto;
     }
     .card-text-field-container {
         text-align: center;
+        // overflow: hidden;
     }
     .card-image-container {
-        border: 2px solid black;
+        // border: 2px solid black;
         height: 300px;
             img {
                 width: 100%;

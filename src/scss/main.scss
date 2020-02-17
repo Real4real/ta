@@ -2,3 +2,16 @@
 body {
     min-width: 360px;
 }
+.root-grid-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    padding: 10px;
+    aside {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        margin: 0 10px 0px 0px;
+    }
+    .body-cont{
+        grid-column-start: 2;
+    }
+}
