@@ -9,10 +9,8 @@ export default class Main extends Component {
         return (
             <div >
                 <Header />
-                <div className="root-grid-container">
-                    <BodyComponent />
-                    <AsideComponent />
-                </div>
+                {/* <BodyComponent /> */}
+                <AsideComponent />
             </div>
         )
     }

@@ -1,5 +1,5 @@
 export default class Service {
-    _apiBase = 'https://makeup-api.herokuapp.com/api/v1/products.json';
+    _apiBase = 'https://makeup-api.herokuapp.com/api/v1/products.jso321n';
 
     // getResource = async () => {
     //     const res = await fetch(`https://makeup-api.herokuapp.com/api/v1/products.json`)

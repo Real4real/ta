@@ -26,7 +26,7 @@ export default class AsideItems extends Component {
             return (
                 <li
                     key={item}
-
+                    
                 >
                     <a>{item}</a>
                 

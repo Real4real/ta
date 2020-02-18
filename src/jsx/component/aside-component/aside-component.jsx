@@ -3,10 +3,12 @@ import './aside-component.scss';
 import Service from '../../../service';
 import Spiner from '../spiner/spiner.jsx';
 import AsideItems from '../aside-items/aside-items.jsx'
+import BodyComponent from '../body-component/body-component.jsx';
 
-const Asside = ({ brands, productType, category }) => {
+const Asside = ({ brands, productType, category, bodyComp }) => {
     return (
-        <aside className="menu">
+        <div className="root-grid-container">
+            <aside className="menu">
             <p className="menu-label">
                 General
             </p>
@@ -26,15 +28,16 @@ const Asside = ({ brands, productType, category }) => {
                 </p>
                 {category}
             </ul>
-        </aside>
+            </aside>
+
+            {bodyComp}
+        </div>
     )
 };
 export default class AsideComponent extends Component {
     service = new Service();
     state = {
-        brand: "?brand",
-        productType: "?product_type",
-        category: "?product_category"
+
     }
     onItemSelected=(item)=>{
         
@@ -46,9 +49,6 @@ export default class AsideComponent extends Component {
         
     }
     render() {
-        const { brand } = this.state;
-
-        console.log(brand)
 
         const { getProductTypes, getBrands, getCategory} = this.service;
         const brandList = (
@@ -66,10 +66,15 @@ export default class AsideComponent extends Component {
                 getData={getCategory}
             />
         );
+        const bodyComponenta = (
+            <BodyComponent
+                
+            />
+        );
 
         return (
 
-            <Asside brands={brandList} productType={productTypeList} category={categoryList} />
+            <Asside brands={brandList} productType={productTypeList} category={categoryList} bodyComp={bodyComponenta}/>
             )
     }
 }
