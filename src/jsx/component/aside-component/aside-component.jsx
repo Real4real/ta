@@ -36,6 +36,9 @@ export default class AsideComponent extends Component {
         productType: "?product_type",
         category: "?product_category"
     }
+    onItemSelected=(item)=>{
+        
+    };
     componentDidMount() {
         this.setState((state) => {
             return { brand: state.brand + "=almay"}

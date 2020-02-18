@@ -12,12 +12,6 @@ export default class AsideItems extends Component {
     componentDidMount() {
 
         const { getData } = this.props;
-
-        // this.service.getProducts()
-        // getData()
-        //     .then((data) => {
-        //     this.setState({data})
-        // })
         
         getData()
             .then((data) => {
@@ -27,17 +21,16 @@ export default class AsideItems extends Component {
             });
     }
 
-    // renderItems(arr) {
-    //     return arr.map((item) => {
-    //         return (
-    //             <li key={item}><a>{item}</a></li>
-    //         )
-    //     })
-    // }
     renderItems(arr) {
         return arr.map((item) => {
             return (
-                <li key={item}><a>{item}</a></li>
+                <li
+                    key={item}
+
+                >
+                    <a>{item}</a>
+                
+                </li>
             );
         });
     }
