@@ -1,14 +1,25 @@
 export default class Service {
-    getResource = async () => {
-        const res = await fetch(`https://makeup-api.herokuapp.com/api/v1/products.json`)
-        return res.json()
+    _apiBase = 'https://makeup-api.herokuapp.com/api/v1/products.json';
+
+    // getResource = async () => {
+    //     const res = await fetch(`https://makeup-api.herokuapp.com/api/v1/products.json`)
+    //     return res.json()
         
+    // };
+    getResource = async (url) => {
+        const res = await fetch(`${this._apiBase}${url}`);
+
+        if (!res.ok) {
+            throw new Error(`Could not fetch ${url}` +
+                `, received ${res.status}`)
+        }
+        return await res.json();
     };
 
     getProductTypes = async () => {
             let uniqarr22;
             let aray2 = [];
-            const res = await this.getResource();
+            const res = await this.getResource(`?product_type=`);
                 res.map((bb) => {
 
                     aray2.push(bb.product_type)
@@ -23,7 +34,7 @@ export default class Service {
     getBrands = async () => {
             let uniqarr22;
             let aray2 = [];
-            const res = await this.getResource();
+            const res = await this.getResource(`?brand=`);
                 res.map((bb) => {
 
                     aray2.push(bb.brand)
@@ -38,7 +49,7 @@ export default class Service {
     getCategory = async () => {
             let uniqarr22;
             let aray2 = [];
-            const res = await this.getResource();
+            const res = await this.getResource(`?category=`);
                 res.map((bb) => {
 
                     aray2.push(bb.category)

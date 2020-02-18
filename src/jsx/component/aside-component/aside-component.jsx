@@ -20,7 +20,7 @@ const Asside = ({ brands, productType, category }) => {
                     Product Type
                 </p>
                 {productType}
-                
+
                 <p className="menu-label">
                     Category
                 </p>
@@ -31,11 +31,22 @@ const Asside = ({ brands, productType, category }) => {
 };
 export default class AsideComponent extends Component {
     service = new Service();
-    // state = {
-    //     brands: null,
-    // }
-
+    state = {
+        brand: "?brand",
+        productType: "?product_type",
+        category: "?product_category"
+    }
+    componentDidMount() {
+        this.setState((state) => {
+            return { brand: state.brand + "=almay"}
+        })
+        
+    }
     render() {
+        const { brand } = this.state;
+
+        console.log(brand)
+
         const { getProductTypes, getBrands, getCategory} = this.service;
         const brandList = (
             <AsideItems
