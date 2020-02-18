@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './aside-component.scss';
-import Service from '../../../service.js';
+import Service from '../../../service';
 import Spiner from '../spiner/spiner.jsx';
 import AsideItems from '../aside-items/aside-items.jsx'
 
@@ -33,12 +33,12 @@ export default class AsideComponent extends Component {
         );
         const productTypeList = (
             <AsideItems
-                
+                getData={getProducts}
             />
         );
         const categoryList = (
             <AsideItems
-                
+                getData={getProducts}
             />
         );
 
