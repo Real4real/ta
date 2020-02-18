@@ -11,8 +11,19 @@ const Asside = ({ brands, productType, category }) => {
                 General
             </p>
             <ul className="menu-list">
+                <p className="menu-label">
+                    Brands
+                </p>
                 {brands}
+
+                <p className="menu-label">
+                    Product Type
+                </p>
                 {productType}
+                
+                <p className="menu-label">
+                    Category
+                </p>
                 {category}
             </ul>
         </aside>
@@ -25,26 +36,26 @@ export default class AsideComponent extends Component {
     // }
 
     render() {
-        const { getProducts } = this.service;
+        const { getProductTypes, getBrands, getCategory} = this.service;
         const brandList = (
             <AsideItems
-                getData={getProducts}
+                getData={getBrands}
             />
         );
         const productTypeList = (
             <AsideItems
-                getData={getProducts}
+                getData={getProductTypes}
             />
         );
         const categoryList = (
             <AsideItems
-                getData={getProducts}
+                getData={getCategory}
             />
         );
 
         return (
 
-            <Asside brands={brandList} productType={productTypeList} category={categoryList}/>
+            <Asside brands={brandList} productType={productTypeList} category={categoryList} />
             )
     }
 }

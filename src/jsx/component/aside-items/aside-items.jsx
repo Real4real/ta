@@ -53,7 +53,7 @@ export default class AsideItems extends Component {
 
         return (
             <li>
-                <a>Brands</a>
+                
                 <ul className="lorem-cont">
                     {items}
                 </ul>
