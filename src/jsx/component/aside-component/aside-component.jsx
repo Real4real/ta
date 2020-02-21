@@ -9,20 +9,21 @@ const Asside = ({ brands, productType, category, bodyComp }) => {
     return (
         <div className="root-grid-container">
             <aside className="menu">
-            <p className="menu-label">
-                General
-            </p>
             <ul className="menu-list">
                 <p className="menu-label">
                     Brands
                 </p>
                 {brands}
+            </ul>
 
+            <ul>
                 <p className="menu-label">
                     Product Type
                 </p>
                 {productType}
-
+                </ul>
+                
+            <ul>
                 <p className="menu-label">
                     Category
                 </p>
@@ -49,7 +50,6 @@ export default class AsideComponent extends Component {
         
     }
     render() {
-
         const { getProductTypes, getBrands, getCategory} = this.service;
         const brandList = (
             <AsideItems
@@ -66,9 +66,19 @@ export default class AsideComponent extends Component {
                 getData={getCategory}
             />
         );
-        const bodyComponenta = (
+        const bodyComponentBrand = (
             <BodyComponent
-                
+                getData={}
+            />
+        );
+        const bodyComponentProductType = (
+            <BodyComponent
+                getData={}
+            />
+        );
+        const bodyComponentCategory = (
+            <BodyComponent
+                getData={}
             />
         );
 
