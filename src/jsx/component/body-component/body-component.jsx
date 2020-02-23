@@ -5,12 +5,12 @@ import Spiner from '../spiner/spiner.jsx'
 import Pagination from '../pagination/pagination.jsx'
 
 export default class BodyComponent extends Component {
-    service = new Service();
-    state = {
-        data: null,
-        currentPage: 1,
-        postsPerPage: 10,
-    }
+    // service = new Service();
+    // state = {
+    //     data: null,
+    //     currentPage: 1,
+    //     postsPerPage: 10,
+    // }
     // componentDidMount() {
     //     this.service.getResource()
     //         .then((data) => {
@@ -48,15 +48,15 @@ export default class BodyComponent extends Component {
     //     })
     // }
 
-    onPaginate = (number) => {
-        this.setState({
-            currentPage: number
-        })
-    }
+    // onPaginate = (number) => {
+    //     this.setState({
+    //         currentPage: number
+    //     })
+    // }
     render() {
         // const { data, currentPage, postsPerPage } = this.state;
         // if (!data) {
-        //     return <Spiner/>
+        //     return <p></p>
         // }
 
         // const indexOfLastPost = currentPage * postsPerPage;

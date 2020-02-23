@@ -5,7 +5,7 @@ import Spiner from '../spiner/spiner.jsx';
 import AsideItems from '../aside-items/aside-items.jsx'
 import BodyComponent from '../body-component/body-component.jsx';
 
-const Asside = ({ brands, productType, category, bodyComp }) => {
+const Asside = ({ brands, productType, category, bodyCompBrand, bodyCompCategory, bodyCompProductType, }) => {
     return (
         <div className="root-grid-container">
             <aside className="menu">
@@ -31,60 +31,93 @@ const Asside = ({ brands, productType, category, bodyComp }) => {
             </ul>
             </aside>
 
-            {bodyComp}
+            {bodyCompBrand}
+            {bodyCompCategory}
+            {bodyCompProductType}
         </div>
     )
 };
 export default class AsideComponent extends Component {
     service = new Service();
     state = {
-
+        selectedItem: null,
+        selectBrand: "?brand=",
+        selectProductType: "?product_type=",
+        selectCategory: "?category=",
     }
     onItemSelected=(item)=>{
-        
-    };
-    componentDidMount() {
-        this.setState((state) => {
-            return { brand: state.brand + "=almay"}
+        this.setState({
+            selectedItem: item
         })
+    };
+    // onItemSelectedBrand = (item) => {
+    //     this.setState((state) => {
+    //         return {selectBrand: state.selectBrand + item}
+    //     })
+    // };
+    // onItemSelectedProductType=(item)=>{
+    //     this.setState((state) => {
+    //         return {selectProductType: state.selectProductType + item}
+    //     })
+    // };
+    // onItemSelectedCategory=(item)=>{
+    //     this.setState((state) => {
+    //         return {selectCategory: state.selectCategory + item}
+    //     })
+    // };
+    // componentDidMount() {
+    //     this.setState((state) => {
+    //         return { brand: state.brand + "=almay"}
+    //     })
         
-    }
+    // }
     render() {
-        const { getProductTypes, getBrands, getCategory} = this.service;
+        const { getProductTypes, getBrands, getCategory, getExactBrand, getExactCategory, getExactProductType} = this.service;
         const brandList = (
             <AsideItems
                 getData={getBrands}
+                // onItemClick={this.onItemSelected}
             />
         );
         const productTypeList = (
             <AsideItems
                 getData={getProductTypes}
+                // onItemClick={this.onItemSelected}
             />
         );
         const categoryList = (
             <AsideItems
                 getData={getCategory}
+                // onItemClick={this.onItemSelected}
             />
         );
         const bodyComponentBrand = (
             <BodyComponent
-                getData={}
+                itemId={this.state.selectedItem}
+                getData={getExactBrand}
             />
         );
         const bodyComponentProductType = (
             <BodyComponent
-                getData={}
+                itemId={this.state.selectedItem}
+                getData={getExactProductType}
             />
         );
         const bodyComponentCategory = (
             <BodyComponent
-                getData={}
+                itemId={this.state.selectedItem}
+                getData={getExactCategory}
             />
         );
 
         return (
 
-            <Asside brands={brandList} productType={productTypeList} category={categoryList} bodyComp={bodyComponenta}/>
-            )
+            <Asside brands={brandList} 
+                    productType={productTypeList} 
+                    category={categoryList} 
+                    // bodyCompBrand={bodyComponentBrand} 
+                    // // bodyCompCategory={bodyComponentProductType} bodyCompProductType={bodyComponentCategory}
+            />
+        )
     }
 }
