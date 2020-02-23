@@ -16,14 +16,14 @@ const Asside = ({ brands, productType, category, bodyCompBrand, bodyCompCategory
                 {brands}
             </ul>
 
-            <ul>
+            <ul className="menu-list">
                 <p className="menu-label">
                     Product Type
                 </p>
                 {productType}
-                </ul>
+            </ul>
                 
-            <ul>
+            <ul className="menu-list">
                 <p className="menu-label">
                     Category
                 </p>
@@ -49,6 +49,7 @@ export default class AsideComponent extends Component {
         this.setState({
             selectedItem: item
         })
+        console.log(item)
     };
     // onItemSelectedBrand = (item) => {
     //     this.setState((state) => {
@@ -76,37 +77,37 @@ export default class AsideComponent extends Component {
         const brandList = (
             <AsideItems
                 getData={getBrands}
-                // onItemClick={this.onItemSelected}
+                onItemClick={this.onItemSelected}
             />
         );
         const productTypeList = (
             <AsideItems
                 getData={getProductTypes}
-                // onItemClick={this.onItemSelected}
+                onItemClick={this.onItemSelected}
             />
         );
         const categoryList = (
             <AsideItems
                 getData={getCategory}
-                // onItemClick={this.onItemSelected}
+                onItemClick={this.onItemSelected}
             />
         );
         const bodyComponentBrand = (
             <BodyComponent
                 itemId={this.state.selectedItem}
-                getData={getExactBrand}
+                dataGet={getExactBrand}
             />
         );
         const bodyComponentProductType = (
             <BodyComponent
                 itemId={this.state.selectedItem}
-                getData={getExactProductType}
+                dataGet={getExactProductType}
             />
         );
         const bodyComponentCategory = (
             <BodyComponent
                 itemId={this.state.selectedItem}
-                getData={getExactCategory}
+                dataGet={getExactCategory}
             />
         );
 
@@ -115,8 +116,8 @@ export default class AsideComponent extends Component {
             <Asside brands={brandList} 
                     productType={productTypeList} 
                     category={categoryList} 
-                    // bodyCompBrand={bodyComponentBrand} 
-                    // // bodyCompCategory={bodyComponentProductType} bodyCompProductType={bodyComponentCategory}
+                    bodyCompBrand={bodyComponentBrand} 
+                    bodyCompCategory={bodyComponentProductType} bodyCompProductType={bodyComponentCategory}
             />
         )
     }

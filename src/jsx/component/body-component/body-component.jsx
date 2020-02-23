@@ -5,70 +5,83 @@ import Spiner from '../spiner/spiner.jsx'
 import Pagination from '../pagination/pagination.jsx'
 
 export default class BodyComponent extends Component {
-    // service = new Service();
-    // state = {
-    //     data: null,
-    //     currentPage: 1,
-    //     postsPerPage: 10,
-    // }
-    // componentDidMount() {
-    //     this.service.getResource()
-    //         .then((data) => {
-    //             this.setState({
-    //                 data
-    //             })
-    //         })
+    service = new Service();
+    state = {
+        item: null,
+        currentPage: 1,
+        postsPerPage: 10,
+    }
+    componentDidMount() {
+        this.updateItem();
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.itemId !== prevProps.itemId) {
+            this.updateItem();
+        }
+    }
+    updateItem() {
+        const { dataGet, itemId } = this.props;
+        if (!itemId) {
+            return
+        }
 
-    // }
+        dataGet(itemId)
+            .then((item) => {
+                this.setState({
+                    item
+                })
+            })
+    }
 
 
-    // renderItems(arr) {
-    //     return arr.map((item) => {
-    //         const { id } = item
-    //         return (
-    //             <div className="card" key={id}>
-    //                 <div className="card-image-container">
-    //                     <img src={item.image_link} alt="cat" />
-    //                 </div>
-    //                 <div className="card-text-field-container">
-    //                     <p className="title is-3">{item.name}</p>
-    //                     <p className="subtitle is-5">{item.brand}</p>
-    //                     <p className="subtitle is-5">{item.price}{item.price_sign}</p>
-    //                     <p className="subtitle is-6">
-    //                         {item.description}
-    //                     </p>
+    renderItems(arr) {
+        return arr.map((item) => {
+            const { id } = item
+            return (
+                <div className="card" key={id}>
+                    <div className="card-image-container">
+                        <img src={item.image_link} alt="cat" />
+                    </div>
+                    <div className="card-text-field-container">
+                        <p className="title is-3">{item.name}</p>
+                        <p className="subtitle is-5">{item.brand}</p>
+                        <p className="subtitle is-5">{item.price}{item.price_sign}</p>
+                        <p className="subtitle is-6">
+                            {item.description}
+                        </p>
                         
-    //                     <a href={item.product_link} className="fsa">
-    //                         <button className="button is-link">Buy</button>
-    //                     </a>
+                        <a href={item.product_link} className="fsa">
+                            <button className="button is-link">Buy</button>
+                        </a>
 
-    //                 </div>
-    //             </div>
-    //         );
-    //     })
-    // }
+                    </div>
+                </div>
+            );
+        })
+    }
 
-    // onPaginate = (number) => {
-    //     this.setState({
-    //         currentPage: number
-    //     })
-    // }
+    onPaginate = (number) => {
+        this.setState({
+            currentPage: number
+        })
+    }
     render() {
-        // const { data, currentPage, postsPerPage } = this.state;
-        // if (!data) {
-        //     return <p></p>
-        // }
+        const { item, currentPage, postsPerPage } = this.state;
+        if (!item) {
+            return <p></p>
+        }
 
-        // const indexOfLastPost = currentPage * postsPerPage;
-        // const indexOfFirstPost = indexOfLastPost - postsPerPage;
+        const indexOfLastPost = currentPage * postsPerPage;
+        const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
-        // const items = this.renderItems(data);
-        // const currentPosts = items.slice(indexOfFirstPost, indexOfLastPost);
+        const items = this.renderItems(item);
+        const currentPosts = items.slice(indexOfFirstPost, indexOfLastPost);
 
         return (
             <div className="body-cont">
                 <div className="main-cnt">
-                    <div className="card">
+                    {currentPosts}
+                    {/* <div className="card">
                         <div className="card-image-container">
                             <img src='https://purr.objects-us-east-1.dream.io/i/VQKev.png' alt="cat" />
                         </div>
@@ -157,7 +170,7 @@ export default class BodyComponent extends Component {
                             </a>
 
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 {/* <Pagination
                     postsPerPage={postsPerPage}

@@ -7,6 +7,15 @@ export default class Service {
         
     // };
     getResource = async (url) => {
+        const res = await fetch(`${this._apiBase}`);
+
+        if (!res.ok) {
+            throw new Error(`Could not fetch ${url}` +
+                `, received ${res.status}`)
+        }
+        return await res.json();
+    };
+    getResource2 = async (url) => {
         const res = await fetch(`${this._apiBase}${url}`);
 
         if (!res.ok) {
@@ -32,15 +41,15 @@ export default class Service {
                 // console.log(uniqarr22)
     };
     getExactProductType = async (item) => {
-        const product = await this.getResource(`?product_type=${item}`);
+        const product = await this.getResource2(`?product_type=${item}`);
         return product
     };
     getExactBrand = async (item) => {
-        const product = await this.getResource(`?brand=${item}`);
+        const product = await this.getResource2(`?brand=${item}`);
         return product
     };
     getExactCategory = async (item) => {
-        const product = await this.getResource(`?category=${item}`);
+        const product = await this.getResource2(`?category=${item}`);
         return product
     };
     getBrands = async () => {
@@ -61,7 +70,7 @@ export default class Service {
     getCategory = async () => {
             let uniqarr22;
             let aray2 = [];
-            const res = await this.getResource();
+         const res = await this.getResource();
                 res.map((bb) => {
 
                     aray2.push(bb.category)

@@ -26,8 +26,7 @@ export default class AsideItems extends Component {
             return (
                 <li
                     key={item}
-                   
-                    
+                    onClick={() => this.props.onItemClick(item)}
                 >
                     <a>{item}</a>
                 
