@@ -1,3 +1,5 @@
+.spiner-container{margin:0 auto}
+.column{background-color:#00d1b2}.main-cnt{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));grid-template-rows:repeat(auto-fit, auto-fit)}.main-cnt .card{background-color:#fff;box-shadow:0 0.5em 1em -0.125em rgba(10,10,10,0.1),0 0 0 1px rgba(10,10,10,0.02);color:#4a4a4a;margin:2px;height:auto}.main-cnt .card-text-field-container{text-align:center}.main-cnt .card-image-container{height:300px}.main-cnt .card-image-container img{width:100%;height:100%;-o-object-fit:cover;object-fit:cover}
 /*! bulma.io v0.8.0 | MIT License | github.com/jgthms/bulma */
 @-webkit-keyframes spinAround {
   from {
@@ -10829,6 +10831,5 @@ label.panel-block:hover {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem;
 }
-/*# sourceMappingURL=bulma.css.map */body{min-width:360px}
-.spiner-container{margin:0 auto}
-.column{background-color:#00d1b2}.main-cnt{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));grid-template-rows:repeat(auto-fit, auto-fit)}.main-cnt .card{background-color:#fff;box-shadow:0 0.5em 1em -0.125em rgba(10,10,10,0.1),0 0 0 1px rgba(10,10,10,0.02);color:#4a4a4a;margin:2px;height:auto}.main-cnt .card-text-field-container{text-align:center}.main-cnt .card-image-container{height:300px}.main-cnt .card-image-container img{width:100%;height:100%;-o-object-fit:cover;object-fit:cover}
+/*# sourceMappingURL=bulma.css.map */body{min-width:360px}.root-grid-container{display:grid;grid-template-columns:260px 1fr;padding:10px}.root-grid-container aside{grid-row-start:1;grid-column-start:1;margin:0 10px 0px 0px}.root-grid-container .body-cont{grid-column-start:2}
+.menu-pod-list{display:none}.menu-active{display:inherit}.lorem-cont{width:100%;height:200px;overflow:auto}
