@@ -23,8 +23,8 @@ const Header = () => {
                     <a className="navbar-item">
                         Home
                     </a>
-                    <a className="navbar-item">
-                        Documentation
+                    <a className="navbar-item" href="https://github.com/Real4real/ta">
+                        GitHub
                     </a>
 
                     <div className="navbar-item has-dropdown is-hoverable">
